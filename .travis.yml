@@ -7,3 +7,17 @@ before_install:
 
 script: 
   - docker run travisbeanstalk npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-west-2"
+  app: "TravisBeanstalk"
+  env: "Travisbeanstalk-env"
+  bucket_name: "elasticbeanstalk-us-west-2-771582200379"
+  bucket_path: "TravisBeanstalk"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: 
+    secure: "$AWS_SCRET_KEY"
+  

@@ -6,7 +6,7 @@ before_install:
   - docker build -t pouya/travisbeanstalk:0.0.1 -f Dockerfile.dev .
 
 script: 
-  - docker run travisbeanstalk npm run test -- --coverage
+  - docker run pouya/travisbeanstalk:0.0.1 npm run test -- --coverage
 
 deploy:
   provider: elasticbeanstalk
